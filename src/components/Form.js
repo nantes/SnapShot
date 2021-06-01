@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { PhotoContext } from "../context/PhotoContext";
 
 const Form = ({ handleSubmit, history }) => {
-  const [searchEntry, setSearchEntry] = useState("");
+  const { searchEntry,setSearchEntry,toggleSearch,setToggleSearch } = useContext(PhotoContext);
   // update search text state
   const updateSearchInput = e => {
+    if(toggleSearch){
+     setToggleSearch(false)
+    }
     setSearchEntry(e.target.value);
   };
   return (
@@ -16,7 +20,7 @@ const Form = ({ handleSubmit, history }) => {
         name="search"
         placeholder="Search..."
         onChange={updateSearchInput}
-        value={searchEntry}
+        value={toggleSearch ? "" : searchEntry}
       />
       <button
         type="submit"

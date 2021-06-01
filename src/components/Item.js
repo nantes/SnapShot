@@ -5,7 +5,7 @@ const Item = ({ searchTerm }) => {
   return (
     <div>
       <h2>{searchTerm} Pictures</h2>
-      <Container searchTerm={searchTerm} />
+      <Container searchTerm={searchTerm} toggleSearch/>
     </div>
   );
 };
