@@ -1,5 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
+import Marker from "./Marker"
 
 const mapStyles = [
   {
@@ -73,17 +74,22 @@ const mapStyles = [
   }
 ];
 
-const Map = ({apiKey, center, zoom}) => {
+const Map = ({apiKey, center, zoom, latitude,longitude}) => {
   return(
-    <GoogleMapReact
-      bootstrapURLKeys={{
-        key: apiKey
-      }}
-      defaultCenter={center}
-      defaultZoom={zoom}
-      options={{ styles: mapStyles }}
-    >
-    </GoogleMapReact>
+      <GoogleMapReact
+        bootstrapURLKeys={{
+          key: apiKey
+        }}
+        defaultCenter={center}
+        defaultZoom={zoom}
+        options={{ styles: mapStyles }}
+      >
+
+        <Marker
+          lat={latitude}
+          lng={longitude}
+        />
+      </GoogleMapReact>
   )
 }
 
