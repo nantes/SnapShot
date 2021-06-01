@@ -18,6 +18,7 @@ const api = axios.create({
   const [loading, setLoading] = useState(true);
   const [searchEntry, setSearchEntry] = useState("");
   const [toggleSearch, setToggleSearch] = useState(false);
+  const [toggleModal, setToggleModal] = useState(false) 
   
   const runSearch = query => {
     api
@@ -37,7 +38,7 @@ const api = axios.create({
       });
   };
   return (
-    <PhotoContext.Provider value={{ images, loading, runSearch, searchEntry, setSearchEntry,toggleSearch,setToggleSearch }}>
+    <PhotoContext.Provider value={{ images, loading, runSearch, searchEntry, setSearchEntry, toggleSearch, setToggleSearch, toggleModal, setToggleModal }}>
       {props.children}
     </PhotoContext.Provider>
   );

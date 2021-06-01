@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Item from "./components/Item";
 import Search from "./components/Search";
 import NotFound from "./components/NotFound";
+import Modal from "./components/Modal"
 
 class App extends Component {
   // Prevent page reload, clear input, set URL and push history on submit
@@ -26,6 +27,12 @@ class App extends Component {
                   handleSubmit={this.handleSubmit}
                   history={props.history}
                 />
+              )}
+            />
+            <Route
+              render={() => (
+                  <Modal
+                  />
               )}
             />
             <Switch>
