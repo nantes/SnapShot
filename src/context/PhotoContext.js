@@ -6,6 +6,9 @@ export const PhotoContext = createContext();
 const PhotoContextProvider = props => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchEntry, setSearchEntry] = useState("");
+  const [toggleSearch, setToggleSearch] = useState(false);
+  
   const runSearch = query => {
     axios
       .get(
@@ -23,7 +26,7 @@ const PhotoContextProvider = props => {
       });
   };
   return (
-    <PhotoContext.Provider value={{ images, loading, runSearch }}>
+    <PhotoContext.Provider value={{ images, loading, runSearch, searchEntry, setSearchEntry,toggleSearch,setToggleSearch }}>
       {props.children}
     </PhotoContext.Provider>
   );
